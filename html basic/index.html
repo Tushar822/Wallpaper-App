@@ -12,16 +12,15 @@
     <h1 class="text-center font-bold text-[2rem] text-orange-400">
         Wallpaper App
     </h1>
-    <section id="wallpaper-section">
-        <div id="wallpaperGrid" class="container mx-auto grid grid-cols-3 gap-4">
+    <section id="wallpaper-section" class="p-10">
+        <div id="wallpaperGrid" class="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 lg:gap-10 place-content-center">
             <!-- Images will be dynamically rendered here -->
         </div>
 
         <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-            <div class="bg-white px-4 py-4 rounded shadow-lg w-[60%]">
-                <img id="modalImage" src="" alt="">
-
-                <div class="mt-4 flex flex-row justify-between">
+            <div class="bg-white p-2 rounded-lg w-[55%] h-[75%] md:h-[85%] lg:h-[95%] flex flex-col items-center justify-center">
+                <img id="modalImage" src="" alt="" class="object-contain rounded-lg max-h-[90%]">
+                <div class="mt-4 flex flex-row gap-5 justify-between">
                     <button id="downloadButton"
                         class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 hover:text-white-500 hover:font-bold">
                         Download
@@ -66,8 +65,8 @@
             wallpaperGrid.innerHTML = images
                 .map((image) => {
                     return `
-                        <div class="w-96 h-full bg-gray-200 hover:scale-105 overflow-hidden rounded-xl cursor-pointer" data-src="${image.src.original}">
-                            <img src="${image.src.medium}" alt="${image.alt}" >
+                        <div class="w-auto flex items-center justify-center h-full hover:scale-105 overflow-hidden rounded-xl cursor-pointer duration-300" data-src="${image.src.original}">
+                            <img src="${image.src.medium}" alt="${image.alt}" class="w-48 md:w-52 lg:w-full h-full rounded-xl overflow-hidden" data-src="${image.src.original}">
                         </div>
                     `;
                 })
